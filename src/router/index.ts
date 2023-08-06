@@ -10,7 +10,7 @@ const routes = [
   },
   { path: '/detail/:id', component: () => import('../views/detail/index.vue') },
   { path: '/login', component: () => import('../views/login/index.vue') },
-  { path: '/editor/:id', component: () => import('../views/detail/index.vue') }
+  { path: '/editor/:id', component: () => import('../views/editor/index.vue') }
 ]
 
 const router = createRouter({

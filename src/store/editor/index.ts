@@ -4,6 +4,8 @@ import { RootState } from '..'
 export interface ComponentData {
   id: string
   isHidden?: boolean
+  // 业务组件库名称 l-text，l-image 等等
+  name: 'S-text' | 's-image' | 's-shape'
   isLocked?: boolean
   layerName: string
   props: {
@@ -17,6 +19,7 @@ export interface EditorState {
 }
 
 const editor: Module<EditorState, RootState> = {
+  namespaced: true,
   state: () => ({
     components: [],
     currentId: ''
@@ -24,6 +27,15 @@ const editor: Module<EditorState, RootState> = {
   mutations: {
     setCurrentId(state, id) {
       state.currentId = id
+    },
+    addElement(state, element: ComponentData) {
+      state.components.push(element)
+    },
+    updateElement(state, { id, props }) {
+      const element = state.components.find(item => item.id === id)
+      if (element) {
+        element.props = props
+      }
     }
   },
   actions: {},

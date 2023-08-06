@@ -8,6 +8,7 @@ export interface UserState {
 }
 
 const user: Module<UserState, RootState> = {
+  namespaced: true,
   state: () => ({
     data: {},
     name: 'Solkatt-one',

@@ -1,0 +1,86 @@
+@import '@/styles/mixins.scss';
+
+.detail-page {
+  .header {
+    @include common-header;
+  }
+
+  main {
+    padding-top: 66px;
+    display: flex;
+    height: 100vh;
+    .left {
+      background-color: #fff;
+      box-shadow: 1px 0 0 #f3f4f9;
+      float: left;
+      height: 100%;
+      left: 0;
+      position: relative;
+      transition: left 0.3s linear;
+      width: 304px;
+      :deep() {
+        .component-item {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 8px;
+          .component-wrapper {
+            width: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+          }
+          .component-wrapper > * {
+            position: static !important;
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .middle {
+      flex: 1;
+      background-color: #f5f7fd;
+      :deep() {
+        main {
+          padding: 24px;
+          margin: 0;
+          // min-height: 90vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          .canvas {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            min-width: 375px;
+            min-height: 200px;
+            border: 1px solid #efefef;
+            background: #fff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: fixed;
+            margin-top: 50px;
+            max-height: 80vh;
+            &：active {
+              border: 1px solid #1890ff;
+            }
+            .body-container {
+              background-color: rgb(255, 255, 255);
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 667.26px;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      width: 304px;
+      height: 100%;
+      box-shadow: 1px 0 0 #f3f4f9;
+      background-color: #fff;
+    }
+  }
+}

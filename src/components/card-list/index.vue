@@ -58,7 +58,7 @@ const currentList = computed(() => {
 
 const itemClick = (item: CardItem) => {
   console.log(item)
-  router.push(`/detail/${item.id}`)
+  router.push(`/editor/${item.id}`)
 }
 </script>
 
