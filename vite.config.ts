@@ -12,6 +12,13 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        // additionalData: `@import "@/src/styles/mixins.scss";` // 这里引入你的 Mixin 文件路径
+      }
+    }
+  },
   plugins: [
     vue(),
     Components({

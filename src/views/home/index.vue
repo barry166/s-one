@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CardList from '@/components/container/card-list/index.vue'
+import CardList from '@/components/card-list/index.vue'
 import { data } from './data'
 const list = ref(data)
 </script>
