@@ -17,7 +17,8 @@ const commonNumberHandler = {
   component: Input,
   extraProps: { type: 'number' },
   initialTransform: (v: string) => (v ? parseInt(v) : 0),
-  afterTransform: (e: number) => (e ? `${e}px` : '')
+  afterTransform: (e: Event) =>
+    (e.target as HTMLInputElement)?.value ? `${(e.target as HTMLInputElement).value}px` : ''
 }
 
 const componentMap: PropsForm = {

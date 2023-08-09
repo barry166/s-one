@@ -2,7 +2,12 @@
   <div class="left-panel">
     <Tabs v-model:activeKey="activeKey" centered>
       <Tabs.TabPane v-for="item in tasOption" :key="item.key" :tab="item.key">
-        <component :is="item?.render" v-if="item.render" :props="currentElement?.props || {}" />
+        <component
+          :is="item?.render"
+          v-if="item.render"
+          :props="currentElement?.props || {}"
+          @onChange="onChange"
+        />
         <Empty v-else />
       </Tabs.TabPane>
     </Tabs>
@@ -34,6 +39,16 @@ const tasOption = reactive([
 ])
 const currentElement = computed(() => store.getters['editor/currentElement'])
 console.log(currentElement)
+
+const onChange = (values: any) => {
+  console.log('change', values)
+  if (currentElement.value.id) {
+    store.commit('editor/updateElement', {
+      id: currentElement.value.id,
+      props: values
+    })
+  }
+}
 </script>
 
 <style></style>

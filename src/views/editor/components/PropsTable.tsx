@@ -9,7 +9,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     return () => {
       return (
         <div>
@@ -26,7 +26,7 @@ export default defineComponent({
             const onChange = (e: any) => {
               const value = afterTransform ? afterTransform(e) : e
               console.log(value)
-              // emit('update:props', { ...props.props, [key]: value })
+              emit('onChange', { ...props.props, [key]: value })
             }
             return (
               <div class="prop-item" key={key}>
